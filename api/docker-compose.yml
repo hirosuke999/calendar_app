@@ -1,0 +1,15 @@
+version: '3'
+services:
+  web:
+    build: ./build
+    image: hirosuke999/firebase-node
+    container_name: firebase-node
+    tty: true
+    environment:
+      # - GOOGLE_APPLICATION_CREDENTIALS=/app/functions/credentials/firebase-adminsdk.json
+      - GOOGLE_APPLICATION_CREDENTIALS=credentials/firebase-adminsdk.json
+    volumes:
+      - $PWD:/app
+    ports:
+      - "5000:5000"
+      - "9005:9005"
